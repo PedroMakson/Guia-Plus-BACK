@@ -54,8 +54,11 @@ namespace GuiaPlus.API.Migrations
                     tbEnderecosClientes_Logradouro = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     tbEnderecosClientes_Bairro = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
                     tbEnderecosClientes_Cidade = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
+                    tbEnderecosClientes_UF = table.Column<string>(type: "nvarchar(2)", maxLength: 2, nullable: false),
                     tbEnderecosClientes_Complemento = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    tbEnderecosClientes_Numero = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false)
+                    tbEnderecosClientes_Numero = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    tbEnderecosClientes_Latitude = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    tbEnderecosClientes_Longitude = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {

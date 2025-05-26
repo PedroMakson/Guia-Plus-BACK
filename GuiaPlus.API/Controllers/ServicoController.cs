@@ -1,4 +1,5 @@
 ﻿using GuiaPlus.API.Data;
+using GuiaPlus.API.Enums;
 using GuiaPlus.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,16 @@ namespace GuiaPlus.API.Controllers
         {
             var servicos = await _context.Servicos.ToListAsync();
             return Ok(servicos);
+        }
+
+        [HttpGet("ativos")]
+        public async Task<IActionResult> GetAtivos()
+        {
+            var servicosAtivos = await _context.Servicos
+                .Where(s => s.Status == StatusServico.Ativo)
+                .ToListAsync();
+
+            return Ok(servicosAtivos);
         }
 
         [HttpGet("{id}")]
@@ -61,6 +72,16 @@ namespace GuiaPlus.API.Controllers
             }
 
             return NoContent();
+        }
+
+        [HttpGet("/api/clientes/ativos")]
+        public async Task<IActionResult> GetClientesAtivos()
+        {
+            var clientesAtivos = await _context.Clientes
+                .Where(c => c.Status == StatusCliente.Ativo) // ajuste conforme seu enum e propriedade
+                .ToListAsync();
+
+            return Ok(clientesAtivos);
         }
 
         [HttpDelete("{id}")]

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GuiaPlus.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250525211811_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250526133501_Ajuste2")]
+    partial class Ajuste2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -112,17 +112,31 @@ namespace GuiaPlus.API.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasColumnName("tbEnderecosClientes_Complemento");
 
+                    b.Property<decimal>("Latitude")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("tbEnderecosClientes_Latitude");
+
                     b.Property<string>("Logradouro")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
                         .HasColumnName("tbEnderecosClientes_Logradouro");
 
+                    b.Property<decimal>("Longitude")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("tbEnderecosClientes_Longitude");
+
                     b.Property<string>("Numero")
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)")
                         .HasColumnName("tbEnderecosClientes_Numero");
+
+                    b.Property<string>("UF")
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)")
+                        .HasColumnName("tbEnderecosClientes_UF");
 
                     b.HasKey("Id");
 

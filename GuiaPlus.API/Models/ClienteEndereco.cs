@@ -36,6 +36,11 @@ namespace GuiaPlus.API.Models
         public required string Cidade { get; set; }
 
         [Required]
+        [MaxLength(2)]
+        [Column("tbEnderecosClientes_UF")]
+        public required string UF { get; set; }
+
+        [Required]
         [MaxLength(100)]
         [Column("tbEnderecosClientes_Complemento")]
         public required string Complemento { get; set; }
@@ -44,6 +49,14 @@ namespace GuiaPlus.API.Models
         [MaxLength(10)]
         [Column("tbEnderecosClientes_Numero")]
         public required string Numero { get; set; }
+
+        [Required]
+        [Column("tbEnderecosClientes_Latitude")]
+        public decimal Latitude { get; set; }
+
+        [Required]
+        [Column("tbEnderecosClientes_Longitude")]
+        public decimal Longitude { get; set; }
 
         [JsonIgnore]
         public virtual Cliente? Cliente { get; set; }
